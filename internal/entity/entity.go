@@ -6,7 +6,7 @@ import (
 
 type TaskRepo interface {
 	Store(task Task)
-	FindById(id int) Task
+	FindById(id int) (Task, error)
 	FindAll() []Task
 }
 

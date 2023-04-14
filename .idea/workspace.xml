@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021388fc-0879-4f5f-ae5a-6f3f6b228cd0" name="Changes" comment="remade architecture">
-      <change afterPath="$PROJECT_DIR$/internal/usecase/usecase.go" afterDir="false" />
+    <list default="true" id="021388fc-0879-4f5f-ae5a-6f3f6b228cd0" name="Changes" comment="add simple usecase">
+      <change afterPath="$PROJECT_DIR$/internal/interfaces/storage/storage.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/entity/entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entity/entity.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecase/usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecase/usecase.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +47,11 @@
     "node.js.selected.package.eslint": "(autodetect)"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/interfaces/storage" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="TestAddTask in gonban/internal/storage" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gonban" />
@@ -82,7 +88,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="remade architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="remade architecture" />
+    <MESSAGE value="add simple usecase" />
+    <option name="LAST_COMMIT_MESSAGE" value="add simple usecase" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -14,6 +14,6 @@ func (t *TaskInteractor) GetAllTasks() []entity.Task {
 	return t.taskRepo.FindAll()
 }
 
-func (t *TaskInteractor) GetTaskById(id int) entity.Task {
+func (t *TaskInteractor) GetTaskById(id int) (entity.Task, error) {
 	return t.taskRepo.FindById(id)
 }
