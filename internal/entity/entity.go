@@ -5,8 +5,9 @@ import (
 )
 
 type TaskRepo interface {
-	Store(task Task) error
-	FindById(id int)
+	Store(task Task)
+	FindById(id int) Task
+	FindAll() []Task
 }
 
 type Task struct {
