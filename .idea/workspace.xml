@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4367add-02bb-4ac8-8f92-b6fedd4f5959" name="Changes" comment="remade architecture again">
+    <list default="true" id="f4367add-02bb-4ac8-8f92-b6fedd4f5959" name="Changes" comment="done simple test MemoryTaskStorage">
+      <change afterPath="$PROJECT_DIR$/internal/interfaces/webserver/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/interfaces/webserver/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/storage_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/storage_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +53,21 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build gonban/cmd">
+    <configuration name="go build gonban/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gonban" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="gonban/cmd" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestMemoryTaskStorage in gonban/internal/interfaces/storage" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="gonban" />
       <working_directory value="$PROJECT_DIR$/internal/interfaces/storage" />
@@ -66,8 +80,22 @@
       <pattern value="^\QTestMemoryTaskStorage\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestMemoryTaskStorage in gonban/internal/storage" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gonban" />
+      <working_directory value="$PROJECT_DIR$/internal/storage" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="gonban/internal/storage" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestMemoryTaskStorage\E$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build gonban/cmd" />
+        <item itemvalue="Go Test.TestMemoryTaskStorage in gonban/internal/storage" />
         <item itemvalue="Go Test.TestMemoryTaskStorage in gonban/internal/interfaces/storage" />
       </list>
     </recent_temporary>
@@ -101,7 +129,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="remade architecture again" />
-    <option name="LAST_COMMIT_MESSAGE" value="remade architecture again" />
+    <MESSAGE value="done simple test MemoryTaskStorage" />
+    <option name="LAST_COMMIT_MESSAGE" value="done simple test MemoryTaskStorage" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
