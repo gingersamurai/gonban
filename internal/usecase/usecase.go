@@ -17,11 +17,15 @@ func NewTaskInteractor(taskStorage TaskStorage) *TaskInteractor {
 	return &TaskInteractor{taskStorage: taskStorage}
 }
 
+func (t *TaskInteractor) Add(task entity.Task) int {
+	return t.taskStorage.Add(task)
+}
+
 func (t *TaskInteractor) GetById(id int) (entity.Task, error) {
 	return t.taskStorage.GetById(id)
 }
 
-func (t *TaskInteractor) GetAllTasks() []entity.Task {
+func (t *TaskInteractor) GetAll() []entity.Task {
 	return t.taskStorage.GetAll()
 }
 
