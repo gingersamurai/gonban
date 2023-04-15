@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4367add-02bb-4ac8-8f92-b6fedd4f5959" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/interfaces/storage/storage_test.go" afterDir="false" />
+    <list default="true" id="f4367add-02bb-4ac8-8f92-b6fedd4f5959" name="Changes" comment="remade architecture again">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/entity/entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/entity/entity.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/usecase/usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecase/usecase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/storage_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/storage_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +53,55 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="TestMemoryTaskStorage in gonban/internal/interfaces/storage" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="gonban" />
+      <working_directory value="$PROJECT_DIR$/internal/interfaces/storage" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="gonban/internal/interfaces/storage" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestMemoryTaskStorage\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestMemoryTaskStorage in gonban/internal/interfaces/storage" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="remade architecture again" />
+    <option name="LAST_COMMIT_MESSAGE" value="remade architecture again" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
