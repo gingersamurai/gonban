@@ -2,18 +2,29 @@ package usecase
 
 import "gonban/internal/entity"
 
-type TaskInteractor struct {
-	taskRepo entity.TaskRepo
+type TaskStorage interface {
+	Add(task entity.Task) int
+	GetById(id int) (entity.Task, error)
+	GetAll() []entity.Task
+	DeleteById(id int) error
 }
 
-func NewTaskInteractor(taskRepo entity.TaskRepo) *TaskInteractor {
-	return &TaskInteractor{taskRepo: taskRepo}
+type TaskInteractor struct {
+	taskStorage TaskStorage
+}
+
+func NewTaskInteractor(taskStorage TaskStorage) *TaskInteractor {
+	return &TaskInteractor{taskStorage: taskStorage}
+}
+
+func (t *TaskInteractor) GetById(id int) (entity.Task, error) {
+	return t.taskStorage.GetById(id)
 }
 
 func (t *TaskInteractor) GetAllTasks() []entity.Task {
-	return t.taskRepo.FindAll()
+	return t.taskStorage.GetAll()
 }
 
-func (t *TaskInteractor) GetTaskById(id int) (entity.Task, error) {
-	return t.taskRepo.FindById(id)
+func (t *TaskInteractor) DeleteById(id int) error {
+	return t.taskStorage.DeleteById(id)
 }
