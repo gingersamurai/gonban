@@ -105,6 +105,7 @@ func (h *Handler) getTaskByIdHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
 func (h *Handler) addTaskHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("started addTaskHandler")
 	defer log.Println("finished addTaskHandler")
@@ -150,6 +151,32 @@ func (h *Handler) addTaskHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
 func (h *Handler) deleteTaskHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("started deleteTaskHandler")
+	defer log.Println("finished deleteTaskHandler")
+
+	args := strings.Split(strings.Trim(r.URL.Path, "/"), "/")
+	if len(args) != 2 {
+		errString := fmt.Sprintf("need 1 argument, got %d\n", len(args))
+		log.Println("ERROR: ", errString)
+		http.Error(w, errString, http.StatusBadRequest)
+		return
+	}
+
+	id, err := strconv.Atoi(args[1])
+	if err != nil {
+		log.Println("ERROR strconv.Atoi():", err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	err = h.taskInteractor.DeleteById(id)
+	if err != nil {
+		log.Println("ERROR GetById: not found")
+		http.Error(w, fmt.Sprintf("task with id = %d not found\n", id), http.StatusNotFound)
+		return
+	}
+
 	return
 }
