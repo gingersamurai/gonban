@@ -41,7 +41,7 @@ func (ms *MemoryTaskStorage) GetById(id int) (entity.Task, error) {
 }
 
 func (ms *MemoryTaskStorage) GetAll() []entity.Task {
-	result := make([]entity.Task, len(ms.data))
+	result := make([]entity.Task, 0, len(ms.data))
 	for _, v := range ms.data {
 		result = append(result, v)
 	}
