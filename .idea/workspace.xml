@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="added some handlers with bugs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/storage.go" afterDir="false" />
+    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="added deleteByIdHandler">
+      <change beforePath="$PROJECT_DIR$/internal/interfaces/webserver/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/webserver/handler.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +58,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added some handlers with bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some handlers with bugs" />
+    <MESSAGE value="fixed bug with getAllTasksHandler (bad slice initializing)" />
+    <MESSAGE value="added deleteByIdHandler" />
+    <option name="LAST_COMMIT_MESSAGE" value="added deleteByIdHandler" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
