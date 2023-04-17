@@ -1,6 +1,6 @@
 package usecase
 
-import "gonban/internal/entity"
+import "github.com/gingersamurai/gonban/internal/entity"
 
 type TaskStorage interface {
 	Add(task entity.Task) int

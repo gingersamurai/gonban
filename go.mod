@@ -1,4 +1,4 @@
-module gonban
+module github.com/gingersamurai/gonban
 
 go 1.20
 

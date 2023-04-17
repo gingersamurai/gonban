@@ -1,9 +1,9 @@
 package storage_test
 
 import (
+	"github.com/gingersamurai/gonban/internal/entity"
+	"github.com/gingersamurai/gonban/internal/interfaces/storage"
 	"github.com/stretchr/testify/assert"
-	"gonban/internal/entity"
-	"gonban/internal/interfaces/storage"
 	"testing"
 	"time"
 )

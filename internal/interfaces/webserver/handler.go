@@ -3,8 +3,8 @@ package webserver
 import (
 	"encoding/json"
 	"fmt"
-	"gonban/internal/entity"
-	"gonban/internal/usecase"
+	"github.com/gingersamurai/gonban/internal/entity"
+	"github.com/gingersamurai/gonban/internal/usecase"
 	"log"
 	"mime"
 	"net/http"

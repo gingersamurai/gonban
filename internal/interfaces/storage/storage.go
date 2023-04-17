@@ -2,8 +2,8 @@ package storage
 
 import (
 	"fmt"
+	"github.com/gingersamurai/gonban/internal/entity"
 	"github.com/pkg/errors"
-	"gonban/internal/entity"
 	"log"
 )
 
@@ -25,7 +25,6 @@ func (ms *MemoryTaskStorage) Add(task entity.Task) int {
 	task.Id = ms.nextId
 	ms.nextId++
 	ms.data[task.Id] = task
-	log.Println("len:", len(ms.data))
 	return task.Id
 }
 
@@ -36,7 +35,6 @@ func (ms *MemoryTaskStorage) GetById(id int) (entity.Task, error) {
 			fmt.Sprintf("MemoryStorage: task with id = %d not found", id),
 		)
 	}
-	log.Println("len:", len(ms.data))
 	return result, nil
 }
 
@@ -45,7 +43,6 @@ func (ms *MemoryTaskStorage) GetAll() []entity.Task {
 	for _, v := range ms.data {
 		result = append(result, v)
 	}
-	log.Println("len:", len(ms.data))
 	return result
 }
 
