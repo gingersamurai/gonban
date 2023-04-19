@@ -26,6 +26,7 @@ func TestSqliteTaskStorage(t *testing.T) {
 		id := ss.Add(newTask)
 		log.Println("ID ==", id)
 	})
+
 	t.Run("GetAll test", func(t *testing.T) {
 		connInfo := "/home/gingersamurai/DataGripProjects/dg_intro/identifier.sqlite"
 		ss, err := storage.NewSqliteTaskStorage(connInfo)
@@ -35,5 +36,15 @@ func TestSqliteTaskStorage(t *testing.T) {
 			fmt.Printf("i: %-5v\ts: %-20v\tn: %-20v\td: %-30v\tp: %-20v\tdd: %-20v\n",
 				v.Id, v.Status, v.Name, v.Description, v.Performer, v.Deadline)
 		}
+	})
+
+	t.Run("GetById test", func(t *testing.T) {
+		connInfo := "/home/gingersamurai/DataGripProjects/dg_intro/identifier.sqlite"
+		ss, err := storage.NewSqliteTaskStorage(connInfo)
+		assert.NoError(t, err)
+		v, err := ss.GetById(6)
+		assert.NoError(t, err)
+		fmt.Printf("i: %-5v\ts: %-20v\tn: %-20v\td: %-30v\tp: %-20v\tdd: %-20v\n",
+			v.Id, v.Status, v.Name, v.Description, v.Performer, v.Deadline)
 	})
 }

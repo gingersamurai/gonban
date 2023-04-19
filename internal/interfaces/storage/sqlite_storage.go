@@ -16,6 +16,31 @@ type SqliteTask struct {
 	Deadline    sql.NullString
 }
 
+func (s SqliteTask) Parse() entity.Task {
+	r := entity.Task{}
+	r.Id = int(s.Id)
+	if s.Status.Valid {
+		r.Status = s.Status.String
+	}
+	if s.Name.Valid {
+		r.Name = s.Name.String
+	}
+	if s.Description.Valid {
+		r.Description = s.Description.String
+	}
+	if s.Performer.Valid {
+		r.Performer = s.Performer.String
+	}
+	if s.Deadline.Valid {
+		var err error
+		r.Deadline, err = time.Parse(time.RFC3339, s.Deadline.String)
+		if err != nil {
+			panic(err)
+		}
+	}
+	return r
+}
+
 type SqliteTaskStorage struct {
 	conn *sql.DB
 }
@@ -42,12 +67,19 @@ func (ss *SqliteTaskStorage) Add(task entity.Task) int {
 }
 
 func (ss *SqliteTaskStorage) GetById(id int) (entity.Task, error) {
-	return entity.Task{}, nil
+	dbRequest := `SELECT id, status, name, description, performer, deadline from tasks WHERE id = $1`
+	sqliteR := SqliteTask{}
+	row := ss.conn.QueryRow(dbRequest, id)
+	err := row.Scan(&sqliteR.Id, &sqliteR.Status, &sqliteR.Name, &sqliteR.Description, &sqliteR.Performer, &sqliteR.Deadline)
+	if err != nil {
+		return entity.Task{}, err
+	}
+	result := sqliteR.Parse()
+	return result, nil
 }
 
 func (ss *SqliteTaskStorage) GetAll() []entity.Task {
 	dbRequest := `SELECT id, status, name, description, performer, deadline from tasks`
-	deadlineLayout := time.RFC3339
 
 	rows, _ := ss.conn.Query(dbRequest)
 	result := []entity.Task{}
@@ -57,26 +89,7 @@ func (ss *SqliteTaskStorage) GetAll() []entity.Task {
 		if err != nil {
 			panic(err)
 		}
-		r := entity.Task{}
-		r.Id = int(sqliteR.Id)
-		if sqliteR.Status.Valid {
-			r.Status = sqliteR.Status.String
-		}
-		if sqliteR.Name.Valid {
-			r.Name = sqliteR.Name.String
-		}
-		if sqliteR.Description.Valid {
-			r.Description = sqliteR.Description.String
-		}
-		if sqliteR.Performer.Valid {
-			r.Performer = sqliteR.Performer.String
-		}
-		if sqliteR.Deadline.Valid {
-			r.Deadline, err = time.Parse(deadlineLayout, sqliteR.Deadline.String)
-			if err != nil {
-				panic(err)
-			}
-		}
+		r := sqliteR.Parse()
 
 		result = append(result, r)
 	}
