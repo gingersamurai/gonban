@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="added GetById()">
-      <change afterPath="$PROJECT_DIR$/cmd/sandbox/sandbox.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/postgres/00.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrations/sqlite/00.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="added postgres!!!">
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/sandbox/sandbox.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/server_rest/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/server_rest/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage_test.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,13 +75,22 @@
       <command value="clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build sandbox.go">
+  <component name="RunManager" selected="Go Build.go build github.com/gingersamurai/gonban/cmd/server_rest">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gonban" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/gingersamurai/gonban/cmd/server_rest" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gonban" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/gingersamurai/gonban/cmd/server_rest" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/server_rest/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build sandbox.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -115,12 +116,6 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="init_postgres" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="init_postgres" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
     <configuration name="postgres_init" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="postgres_init" workingDirectory="" arguments="">
         <envs />
@@ -134,19 +129,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Go Build.go build github.com/gingersamurai/gonban/cmd/server_rest" />
       <item itemvalue="Go Build.go build sandbox.go" />
       <item itemvalue="Makefile Target.postgres_init" />
       <item itemvalue="Makefile Target.postgres_migrate" />
       <item itemvalue="Makefile Target.clean" />
-      <item itemvalue="Makefile Target.init_postgres" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build sandbox.go" />
+        <item itemvalue="Go Build.go build github.com/gingersamurai/gonban/cmd/server_rest" />
         <item itemvalue="Makefile Target.postgres_migrate" />
         <item itemvalue="Makefile Target.postgres_init" />
         <item itemvalue="Makefile Target.clean" />
-        <item itemvalue="Makefile Target.init_postgres" />
+        <item itemvalue="Go Build.go build sandbox.go" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +156,8 @@
     <MESSAGE value="renamed project" />
     <MESSAGE value="started adding sqlite" />
     <MESSAGE value="added GetById()" />
-    <option name="LAST_COMMIT_MESSAGE" value="added GetById()" />
+    <MESSAGE value="added postgres!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="added postgres!!!" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
