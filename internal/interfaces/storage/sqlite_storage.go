@@ -17,19 +17,12 @@ type SqliteTask struct {
 }
 
 func (s SqliteTask) Parse() entity.Task {
-	r := entity.Task{}
-	r.Id = int(s.Id)
-	if s.Status.Valid {
-		r.Status = s.Status.String
-	}
-	if s.Name.Valid {
-		r.Name = s.Name.String
-	}
-	if s.Description.Valid {
-		r.Description = s.Description.String
-	}
-	if s.Performer.Valid {
-		r.Performer = s.Performer.String
+	r := entity.Task{
+		Id:          int(s.Id),
+		Status:      s.Status.String,
+		Name:        s.Name.String,
+		Description: s.Description.String,
+		Performer:   s.Performer.String,
 	}
 	if s.Deadline.Valid {
 		var err error
@@ -97,7 +90,9 @@ func (ss *SqliteTaskStorage) GetAll() []entity.Task {
 }
 
 func (ss *SqliteTaskStorage) DeleteById(id int) error {
-	return nil
+	dbRequest := `DELETE FROM tasks WHERE id = $1`
+	_, err := ss.conn.Exec(dbRequest, id)
+	return err
 }
 
 func (ss *SqliteTaskStorage) Close() error {

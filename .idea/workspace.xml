@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="started adding sqlite">
+    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="added GetById()">
+      <change afterPath="$PROJECT_DIR$/cmd/sandbox/sandbox.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrations/postgres/00.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrations/sqlite/00.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +36,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2OWABAUZ75ObJShGZpT0VGwjGng" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,94 +53,100 @@
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "deletionFromPopupRequiresConfirmation": "false",
+    "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "/home/gingersamurai/coding/friends_repos/go-cleanarchitecture",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "go.autoimport"
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
-      "sqlite"
+      "sqlite",
+      "postgresql"
     ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/db/migrations/sqlite" />
       <recent name="$PROJECT_DIR$/cmd/rest_server" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestSqliteTaskStorage/GetAll_test in github.com/gingersamurai/gonban/internal/interfaces/storage">
-    <configuration name="go build sqlite_storage.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="clean" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Build.go build sandbox.go">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="gonban" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <package value="github.com/gingersamurai/gonban" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/internal/interfaces/storage/sqlite_storage.go" />
+      <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSqliteTaskStorage in github.com/gingersamurai/gonban/internal/interfaces/storage" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go build sandbox.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gonban" />
-      <working_directory value="$PROJECT_DIR$/internal/interfaces/storage" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/gingersamurai/gonban/internal/interfaces/storage" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/sandbox/sandbox.go" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="gonban" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestSqliteTaskStorage\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSqliteTaskStorage/Add_test in github.com/gingersamurai/gonban/internal/interfaces/storage" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gonban" />
-      <working_directory value="$PROJECT_DIR$/internal/interfaces/storage" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/gingersamurai/gonban/internal/interfaces/storage" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestSqliteTaskStorage\E$/^\QAdd_test\E$" />
+    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="TestSqliteTaskStorage/GetAll_test in github.com/gingersamurai/gonban/internal/interfaces/storage" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="gonban" />
-      <working_directory value="$PROJECT_DIR$/internal/interfaces/storage" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/gingersamurai/gonban/internal/interfaces/storage" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestSqliteTaskStorage\E$/^\QGetAll_test\E$" />
+    <configuration name="init_postgres" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="init_postgres" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="run" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="run" workingDirectory="" arguments="">
+    <configuration name="postgres_init" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="postgres_init" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="postgres_migrate" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="postgres_migrate" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Go Build.go build sqlite_storage.go" />
-      <item itemvalue="Go Test.TestSqliteTaskStorage in github.com/gingersamurai/gonban/internal/interfaces/storage" />
-      <item itemvalue="Go Test.TestSqliteTaskStorage/Add_test in github.com/gingersamurai/gonban/internal/interfaces/storage" />
-      <item itemvalue="Go Test.TestSqliteTaskStorage/GetAll_test in github.com/gingersamurai/gonban/internal/interfaces/storage" />
-      <item itemvalue="Makefile Target.run" />
+      <item itemvalue="Go Build.go build sandbox.go" />
+      <item itemvalue="Makefile Target.postgres_init" />
+      <item itemvalue="Makefile Target.postgres_migrate" />
+      <item itemvalue="Makefile Target.clean" />
+      <item itemvalue="Makefile Target.init_postgres" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestSqliteTaskStorage/GetAll_test in github.com/gingersamurai/gonban/internal/interfaces/storage" />
-        <item itemvalue="Go Test.TestSqliteTaskStorage/Add_test in github.com/gingersamurai/gonban/internal/interfaces/storage" />
-        <item itemvalue="Go Build.go build sqlite_storage.go" />
-        <item itemvalue="Go Test.TestSqliteTaskStorage in github.com/gingersamurai/gonban/internal/interfaces/storage" />
-        <item itemvalue="Makefile Target.run" />
+        <item itemvalue="Go Build.go build sandbox.go" />
+        <item itemvalue="Makefile Target.postgres_migrate" />
+        <item itemvalue="Makefile Target.postgres_init" />
+        <item itemvalue="Makefile Target.clean" />
+        <item itemvalue="Makefile Target.init_postgres" />
       </list>
     </recent_temporary>
   </component>
@@ -139,7 +160,8 @@
     <MESSAGE value="added deleteByIdHandler" />
     <MESSAGE value="renamed project" />
     <MESSAGE value="started adding sqlite" />
-    <option name="LAST_COMMIT_MESSAGE" value="started adding sqlite" />
+    <MESSAGE value="added GetById()" />
+    <option name="LAST_COMMIT_MESSAGE" value="added GetById()" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
