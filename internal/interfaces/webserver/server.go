@@ -1,6 +1,8 @@
 package webserver
 
 import (
+	"fmt"
+	"github.com/gingersamurai/gonban/internal/config"
 	"log"
 	"net/http"
 )
@@ -9,12 +11,12 @@ type Server struct {
 	server *http.Server
 }
 
-func NewServer(addr string, handler *Handler) *Server {
+func NewServer(cfg config.ServerConfig, handler *Handler) *Server {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", handler.Handle)
 
 	httpServer := http.Server{
-		Addr:    addr,
+		Addr:    fmt.Sprintf("%s:%s", cfg.Host, cfg.Port),
 		Handler: mux,
 	}
 

@@ -3,6 +3,7 @@ package storage
 import (
 	"database/sql"
 	"fmt"
+	"github.com/gingersamurai/gonban/internal/config"
 	"github.com/gingersamurai/gonban/internal/entity"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
@@ -35,9 +36,16 @@ type PostgresTaskStorage struct {
 	conn *sqlx.DB
 }
 
-func NewPostgresTaskStorage(connectionInfo string) (*PostgresTaskStorage, error) {
+func NewPostgresTaskStorage(cfg config.PostgresConfig) (*PostgresTaskStorage, error) {
+	connectionInfo := fmt.Sprintf(
+		"host=%s port=%s user=%s dbname=%s sslmode=%s password=%s",
+		cfg.Host, cfg.Port, cfg.User, cfg.DBName, cfg.SSLMode, cfg.Password,
+	)
 	conn, err := sqlx.Open("postgres", connectionInfo)
 	if err != nil {
+		return nil, err
+	}
+	if err = conn.Ping(); err != nil {
 		return nil, err
 	}
 	return &PostgresTaskStorage{conn: conn}, nil

@@ -1,20 +1,30 @@
 package main
 
 import (
+	"github.com/gingersamurai/gonban/internal/config"
 	"github.com/gingersamurai/gonban/internal/interfaces/storage"
 	"github.com/gingersamurai/gonban/internal/interfaces/webserver"
 	"github.com/gingersamurai/gonban/internal/usecase"
 	"log"
 )
 
+const (
+	configFilePath = "./internal/config/"
+	configFileName = "config"
+)
+
 func main() {
-	taskStorage, err := storage.NewPostgresTaskStorage("host=localhost user=postgres password=15092003 sslmode=disable")
+	cfg, err := config.NewConfig(configFilePath, configFileName)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("config parsing:", err)
+	}
+	taskStorage, err := storage.NewPostgresTaskStorage(cfg.Postgres)
+	if err != nil {
+		log.Fatal("connecting to db:", err)
 	}
 	taskInteractor := usecase.NewTaskInteractor(taskStorage)
 	handler := webserver.NewHandler(taskInteractor)
-	server := webserver.NewServer("localhost:8080", handler)
+	server := webserver.NewServer(cfg.Server, handler)
 
 	server.Run()
 }

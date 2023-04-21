@@ -25,10 +25,10 @@ sqlite_init:
 
 
 postgres_migrate:
-	psql "host=localhost user=postgres password=15092003" -f ${POSTGRES_MIGRATIONS_PATH}
+	psql "host=localhost user=postgres password=bibaboba" -f ${POSTGRES_MIGRATIONS_PATH}
 
 postgres_init:
-	docker run --rm --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=15092003 -d postgres
+	docker run --rm --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=bibaboba -d postgres
 
 
 clean:
