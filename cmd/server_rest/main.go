@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/gingersamurai/gonban/internal/config"
-	"github.com/gingersamurai/gonban/internal/interfaces/storage"
-	"github.com/gingersamurai/gonban/internal/interfaces/webserver"
-	"github.com/gingersamurai/gonban/internal/usecase"
+	"gonban/internal/config"
+	"gonban/internal/interfaces/storage"
+	"gonban/internal/interfaces/webserver"
+	"gonban/internal/usecase"
 	"log"
 )
 

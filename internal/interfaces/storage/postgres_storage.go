@@ -3,11 +3,11 @@ package storage
 import (
 	"database/sql"
 	"fmt"
-	"github.com/gingersamurai/gonban/internal/config"
-	"github.com/gingersamurai/gonban/internal/entity"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"github.com/pkg/errors"
+	"gonban/internal/config"
+	"gonban/internal/entity"
 	"log"
 )
 

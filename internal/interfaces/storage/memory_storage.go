@@ -2,8 +2,8 @@ package storage
 
 import (
 	"fmt"
-	"github.com/gingersamurai/gonban/internal/entity"
 	"github.com/pkg/errors"
+	"gonban/internal/entity"
 	"log"
 )
 

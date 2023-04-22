@@ -2,7 +2,7 @@ package webserver
 
 import (
 	"fmt"
-	"github.com/gingersamurai/gonban/internal/config"
+	"gonban/internal/config"
 	"log"
 	"net/http"
 )
