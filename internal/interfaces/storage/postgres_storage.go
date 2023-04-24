@@ -8,7 +8,6 @@ import (
 	"github.com/pkg/errors"
 	"gonban/internal/config"
 	"gonban/internal/entity"
-	"log"
 )
 
 type PostgresTask struct {
@@ -20,7 +19,7 @@ type PostgresTask struct {
 	Deadline    sql.NullTime
 }
 
-func (p PostgresTask) Parse() entity.Task {
+func (p PostgresTask) Cast() entity.Task {
 	r := entity.Task{
 		Id:          int(p.Id),
 		Status:      p.Status.String,
@@ -51,34 +50,34 @@ func NewPostgresTaskStorage(cfg config.PostgresConfig) (*PostgresTaskStorage, er
 	return &PostgresTaskStorage{conn: conn}, nil
 }
 
-func (ps *PostgresTaskStorage) Add(task entity.Task) int {
+func (ps *PostgresTaskStorage) Add(task entity.Task) (int, error) {
 	dbRequest := `INSERT INTO tasks(status, name, description, performer, deadline) VALUES (:status, :name, :description, :performer, :deadline) RETURNING id`
 	row, err := ps.conn.NamedQuery(dbRequest, task)
 	if err != nil {
-		log.Fatal(err)
+		return 0, fmt.Errorf("MemoryStorage.Add(): %w", err)
 	}
 	row.Next()
 	var id int64
 	err = row.Scan(&id)
 	if err != nil {
-		log.Fatal(err)
+		return 0, fmt.Errorf("MemoryStorage.Add(): %w", err)
 	}
-	return int(id)
+	return int(id), nil
 }
 
 func (ps *PostgresTaskStorage) GetById(id int) (entity.Task, error) {
-	dbRequest := `SELECT * from tasks where id = $1`
+	dbRequest := `SELECT * FROM tasks WHERE id = $1`
 	postgresR := PostgresTask{}
 	row := ps.conn.QueryRowx(dbRequest, id)
 	if err := row.StructScan(&postgresR); err != nil {
 		return entity.Task{}, err
 	}
-	result := postgresR.Parse()
+	result := postgresR.Cast()
 	return result, nil
 }
 
 func (ps *PostgresTaskStorage) GetAll() []entity.Task {
-	dbRequest := `SELECT * from tasks`
+	dbRequest := `SELECT * FROM tasks`
 	rows, err := ps.conn.Queryx(dbRequest)
 	if err != nil {
 		panic(err)
@@ -89,7 +88,7 @@ func (ps *PostgresTaskStorage) GetAll() []entity.Task {
 		if err := rows.StructScan(&postgresR); err != nil {
 			panic(err)
 		}
-		result = append(result, postgresR.Parse())
+		result = append(result, postgresR.Cast())
 	}
 	return result
 }

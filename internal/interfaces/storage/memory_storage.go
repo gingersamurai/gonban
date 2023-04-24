@@ -22,14 +22,14 @@ func NewMemoryTaskStorage() *MemoryTaskStorage {
 	}
 }
 
-func (ms *MemoryTaskStorage) Add(task entity.Task) int {
+func (ms *MemoryTaskStorage) Add(task entity.Task) (int, error) {
 	ms.Lock()
 	defer ms.Unlock()
 
 	task.Id = ms.nextId
 	ms.nextId++
 	ms.data[task.Id] = task
-	return task.Id
+	return task.Id, nil
 }
 
 func (ms *MemoryTaskStorage) GetById(id int) (entity.Task, error) {

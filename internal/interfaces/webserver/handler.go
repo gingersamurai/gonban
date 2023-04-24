@@ -70,7 +70,7 @@ func (h *Handler) getTaskByIdHandler(w http.ResponseWriter, r *http.Request) {
 
 	args := strings.Split(strings.Trim(r.URL.Path, "/"), "/")
 	if len(args) != 2 {
-		errString := fmt.Sprintf("need 1 argument, got %d\n", len(args))
+		errString := fmt.Sprintf("need 1 argument, got %d\n", len(args)-1)
 		log.Println("ERROR: ", errString)
 		http.Error(w, errString, http.StatusBadRequest)
 		return
@@ -136,7 +136,12 @@ func (h *Handler) addTaskHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	id := h.taskInteractor.Add(rt)
+	id, err := h.taskInteractor.Add(rt)
+	if err != nil {
+		log.Println("ERROR: task interactor.Add():", err.Error())
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+
 	js, err := json.Marshal(ResponseId{Id: id})
 	if err != nil {
 		log.Println("ERROR json.Marshal():", err.Error())

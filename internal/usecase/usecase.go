@@ -3,7 +3,7 @@ package usecase
 import "gonban/internal/entity"
 
 type TaskStorage interface {
-	Add(task entity.Task) int
+	Add(task entity.Task) (int, error)
 	GetById(id int) (entity.Task, error)
 	GetAll() []entity.Task
 	DeleteById(id int) error
@@ -17,7 +17,7 @@ func NewTaskInteractor(taskStorage TaskStorage) *TaskInteractor {
 	return &TaskInteractor{taskStorage: taskStorage}
 }
 
-func (t *TaskInteractor) Add(task entity.Task) int {
+func (t *TaskInteractor) Add(task entity.Task) (int, error) {
 	return t.taskStorage.Add(task)
 }
 

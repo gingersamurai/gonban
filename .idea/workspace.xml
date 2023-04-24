@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="added goose migrations and using environment variables">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gonban.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gonban.iml" afterDir="false" />
+    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="made MemoryTaskStorage thread-safe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/server_rest/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/server_rest/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrations/00001_create_table_tasks.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/00001_create_table_tasks.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/memory_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/memory_storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/interfaces/webserver/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/webserver/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/usecase/usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecase/usecase.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +143,8 @@
     <MESSAGE value="added config!!!" />
     <MESSAGE value="added .gitignore" />
     <MESSAGE value="added goose migrations and using environment variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="added goose migrations and using environment variables" />
+    <MESSAGE value="made MemoryTaskStorage thread-safe" />
+    <option name="LAST_COMMIT_MESSAGE" value="made MemoryTaskStorage thread-safe" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
