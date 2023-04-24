@@ -49,13 +49,18 @@ func (h *Handler) getAllTasksHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("started getAllTasksHandler")
 	log.Println("finished getAllTasksHandler")
 
-	tasks := h.taskInteractor.GetAll()
-	fmt.Println(len(tasks))
+	tasks, err := h.taskInteractor.GetAll()
+	if err != nil {
+		log.Println("ERROR: taskInteractor.getAll():", err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+
 	js, err := json.Marshal(tasks)
 	if err != nil {
 		log.Println("ERROR json.Marshal():", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
+
 	w.Header().Set("Content-Type", "application/json")
 	_, err = w.Write(js)
 	if err != nil {

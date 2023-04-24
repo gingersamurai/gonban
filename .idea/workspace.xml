@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="made MemoryTaskStorage thread-safe">
+    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="changed Add()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/memory_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/memory_storage.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" afterDir="false" />
@@ -74,7 +74,7 @@
       <command value="clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build gonban/cmd/server_rest">
+  <component name="RunManager" selected="Makefile Target.run">
     <configuration name="go build gonban/cmd/server_rest" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gonban" />
       <working_directory value="$PROJECT_DIR$" />
@@ -90,18 +90,15 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="clean" workingDirectory="" arguments="">
+    <configuration name="postgres_init" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="postgres_init" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
     <configuration name="postgres_migrate" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="postgres_migrate" workingDirectory="" arguments="">
-        <envs>
-          <env name="GOOSE_DBSTRING" value="host=localhost user=postgres password=bibaboba" />
-          <env name="GOOSE_DRIVER" value="postgres" />
-        </envs>
+        <envs />
       </makefile>
       <method v="2" />
     </configuration>
@@ -113,18 +110,18 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build gonban/cmd/server_rest" />
+      <item itemvalue="Makefile Target.postgres_init" />
       <item itemvalue="Makefile Target.build" />
       <item itemvalue="Makefile Target.run" />
       <item itemvalue="Makefile Target.postgres_migrate" />
-      <item itemvalue="Makefile Target.clean" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build gonban/cmd/server_rest" />
         <item itemvalue="Makefile Target.run" />
-        <item itemvalue="Makefile Target.build" />
-        <item itemvalue="Makefile Target.clean" />
         <item itemvalue="Makefile Target.postgres_migrate" />
+        <item itemvalue="Makefile Target.postgres_init" />
+        <item itemvalue="Go Build.go build gonban/cmd/server_rest" />
+        <item itemvalue="Makefile Target.build" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +141,8 @@
     <MESSAGE value="added .gitignore" />
     <MESSAGE value="added goose migrations and using environment variables" />
     <MESSAGE value="made MemoryTaskStorage thread-safe" />
-    <option name="LAST_COMMIT_MESSAGE" value="made MemoryTaskStorage thread-safe" />
+    <MESSAGE value="changed Add()" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed Add()" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

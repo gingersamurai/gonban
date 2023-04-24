@@ -1,11 +1,11 @@
 package storage
 
 import (
-	"database/sql"
 	"fmt"
+
+	"database/sql"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
-	"github.com/pkg/errors"
 	"gonban/internal/config"
 	"gonban/internal/entity"
 )
@@ -54,13 +54,13 @@ func (ps *PostgresTaskStorage) Add(task entity.Task) (int, error) {
 	dbRequest := `INSERT INTO tasks(status, name, description, performer, deadline) VALUES (:status, :name, :description, :performer, :deadline) RETURNING id`
 	row, err := ps.conn.NamedQuery(dbRequest, task)
 	if err != nil {
-		return 0, fmt.Errorf("MemoryStorage.Add(): %w", err)
+		return 0, fmt.Errorf("PostgresTaskStorage.Add(): %w", err)
 	}
 	row.Next()
 	var id int64
 	err = row.Scan(&id)
 	if err != nil {
-		return 0, fmt.Errorf("MemoryStorage.Add(): %w", err)
+		return 0, fmt.Errorf("PostgresTaskStorage.Add(): %w", err)
 	}
 	return int(id), nil
 }
@@ -76,11 +76,11 @@ func (ps *PostgresTaskStorage) GetById(id int) (entity.Task, error) {
 	return result, nil
 }
 
-func (ps *PostgresTaskStorage) GetAll() []entity.Task {
+func (ps *PostgresTaskStorage) GetAll() ([]entity.Task, error) {
 	dbRequest := `SELECT * FROM tasks`
 	rows, err := ps.conn.Queryx(dbRequest)
 	if err != nil {
-		panic(err)
+		return nil, fmt.Errorf("PostgresTaskStorage.GetAll(): %w", err)
 	}
 	var result []entity.Task
 	postgresR := PostgresTask{}
@@ -90,7 +90,7 @@ func (ps *PostgresTaskStorage) GetAll() []entity.Task {
 		}
 		result = append(result, postgresR.Cast())
 	}
-	return result
+	return result, nil
 }
 
 func (ps *PostgresTaskStorage) DeleteById(id int) error {
@@ -104,7 +104,7 @@ func (ps *PostgresTaskStorage) DeleteById(id int) error {
 		return err
 	}
 	if deleted == 0 {
-		return errors.New(fmt.Sprintf("task with id %v not found", id))
+		return fmt.Errorf("PostgresTaskStorage.GetAll(): task with id %v not found", id)
 	}
 	return err
 }

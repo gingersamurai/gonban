@@ -45,7 +45,7 @@ func (ms *MemoryTaskStorage) GetById(id int) (entity.Task, error) {
 	return result, nil
 }
 
-func (ms *MemoryTaskStorage) GetAll() []entity.Task {
+func (ms *MemoryTaskStorage) GetAll() ([]entity.Task, error) {
 	ms.RLock()
 	defer ms.RUnlock()
 
@@ -53,7 +53,7 @@ func (ms *MemoryTaskStorage) GetAll() []entity.Task {
 	for _, v := range ms.data {
 		result = append(result, v)
 	}
-	return result
+	return result, nil
 }
 
 func (ms *MemoryTaskStorage) DeleteById(id int) error {
