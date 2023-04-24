@@ -1,6 +1,5 @@
 -- +goose Up
 -- +goose StatementBegin
-SELECT 'up SQL query';
 CREATE TABLE tasks(
                       id SERIAL PRIMARY KEY,
                       status TEXT,
@@ -13,6 +12,5 @@ CREATE TABLE tasks(
 
 -- +goose Down
 -- +goose StatementBegin
-SELECT 'down SQL query';
 DROP TABLE tasks;
 -- +goose StatementEnd

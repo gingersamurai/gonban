@@ -5,6 +5,11 @@ import (
 	"github.com/spf13/viper"
 )
 
+const (
+	ConfigFilePath = "./internal/config/"
+	ConfigFileName = "config"
+)
+
 type Config struct {
 	Server   ServerConfig   `mapstructure:"server" validate:"required"`
 	Postgres PostgresConfig `mapstructure:"postgres" validate:"required"`

@@ -8,13 +8,8 @@ import (
 	"log"
 )
 
-const (
-	configFilePath = "./internal/config/"
-	configFileName = "config"
-)
-
 func main() {
-	cfg, err := config.NewConfig(configFilePath, configFileName)
+	cfg, err := config.NewConfig(config.ConfigFilePath, config.ConfigFileName)
 	if err != nil {
 		log.Fatal("config parsing:", err)
 	}
