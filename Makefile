@@ -22,9 +22,7 @@ postgres_migrate:
 	 goose -dir ./db/migrations up
 
 postgres_init:
-	docker run --rm --name some-postgres -p 5432:5432 --env-file .env -d postgres
-
-
+	docker run --rm --name some-postgres -p 5432:5432 --env-file .env -d
 
 clean:
 	rm -rf ${SQLITE_DB_PATH}

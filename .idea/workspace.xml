@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="changed Add()">
+    <list default="true" id="0513e57a-6579-4d31-8607-efa1b4483f84" name="Changes" comment="fixed bugs">
+      <change afterPath="$PROJECT_DIR$/misc/gonban_архитектура.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/memory_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/memory_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/storage/postgres_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/interfaces/webserver/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interfaces/webserver/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/usecase/usecase.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/usecase/usecase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -35,35 +36,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gingersamurai/coding/friends_repos/go-cleanarchitecture&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/home/gingersamurai/coding/projects/gonban/misc",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;,
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite",
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/misc" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/db/migrations/sqlite" />
       <recent name="$PROJECT_DIR$/cmd/rest_server" />
@@ -74,7 +78,7 @@
       <command value="clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Makefile Target.run">
+  <component name="RunManager" selected="Makefile Target.postgres_migrate">
     <configuration name="go build gonban/cmd/server_rest" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gonban" />
       <working_directory value="$PROJECT_DIR$" />
@@ -117,9 +121,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile Target.run" />
         <item itemvalue="Makefile Target.postgres_migrate" />
         <item itemvalue="Makefile Target.postgres_init" />
+        <item itemvalue="Makefile Target.run" />
         <item itemvalue="Go Build.go build gonban/cmd/server_rest" />
         <item itemvalue="Makefile Target.build" />
       </list>
@@ -142,7 +146,8 @@
     <MESSAGE value="added goose migrations and using environment variables" />
     <MESSAGE value="made MemoryTaskStorage thread-safe" />
     <MESSAGE value="changed Add()" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed Add()" />
+    <MESSAGE value="fixed bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
